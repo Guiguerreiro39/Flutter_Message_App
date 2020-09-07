@@ -25,6 +25,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void updatePosts() {
+    getAllPosts().then((posts) => {
+          this.setState(() {
+            this.posts = posts;
+          })
+        });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    updatePosts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
